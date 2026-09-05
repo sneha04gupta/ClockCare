@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title> ClockCare</title>
+    <style>
+        header{
+            padding:8px 15px;
+        }
+
+.logo-section{
+
+    display:flex;
+    align-items:center;
+    
+
+}
+
+.logo-section img{
+
+    width:270px;
+    height:220px;
+
+    border-radius:65px;      /* Rounded corners */
+
+    object-fit:cover;
+    
+    margin-right:20px;
+
+}
+
+.logo-text h1{
+
+    color:#d60000;
+    font-size:60px;
+    font-family:Arial, Helvetica, sans-serif;
+
+}
+
+.logo-text p{
+
+    margin-top:-39px;
+    margin-bottom:0;
+    font-size:20px;
+    color:#d60000;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+.clock{
+    color:red;
+}
+
+.care{
+    color:black;
+}
+
+.top-bar{
+    position:absolute;
+    top:20px;
+    right:50px;
+}
+
+.top-bar a{
+    text-decoration:none;
+    color:black;
+    font-weight:bold;
+    margin-left:20px;
+}
+
+.signup-btn{
+    background:#d60000;
+    color:white !important;
+    padding:8px 18px;
+    border-radius:6px;
+}
+.login-btn{
+    background:black;
+    color:white !important;
+    padding:8px 18px;
+    border-radius:6px;
+}
+
+        nav ul{
+    background-color:black;       
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 10px 0;
+    }
+
+    nav ul li a{
+    
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    }
+
+    nav ul li a:hover{
+    color: rgb(42, 198, 245);
+    }
+    p{
+    font-size: 18px;
+    }
+
+footer{
+
+    background:#111;
+    color:white;
+    padding:40px 60px 20px;
+    margin-top:60px;
+
+}
+
+.footer-container{
+
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+
+}
+
+.footer-box{
+
+    width:30%;
+
+}
+
+.footer-box h2{
+
+    color:red;
+    margin-bottom:10px;
+
+}
+
+.footer-box h3{
+
+    color:red;
+    margin-bottom:15px;
+
+}
+
+.footer-box p{
+
+    color:white;
+    line-height:28px;
+}
+
+.footer-box ul{
+
+    list-style:none;
+    padding:0;
+
+}
+
+.footer-box ul li{
+
+    margin-bottom:10px;
+
+}
+
+.footer-box ul li a{
+
+    color:white;
+    text-decoration:none;
+
+}
+
+.footer-box ul li a:hover{
+
+    color:red;
+
+}
+
+hr{
+
+    margin:30px 0;
+    border:1px solid red;
+
+}
+
+.footer-bottom{
+
+    text-align:center;
+    font-size:15px;
+
+}
+
+.footer-bottom p{
+
+    margin:5px;
+
+}
+
+
+
+/* ============================= */
+/* GENERAL / BODY */
+/* ============================= */
+
+* {
+    box-sizing: border-box;
+}
+
+
+
+
+/* ============================= */
+/* HERO SECTION */
+/* ============================= */
+
+.hero {
+    width: 88%;
+    max-width: 1200px;
+    height: 395px;
+
+    margin: 20px auto 45px;
+    padding: 35px 45px;
+
+    background: white;
+    border-radius: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    overflow: hidden;
+}
+
+.hero-text {
+    width: 52%;
+    padding-right: 20px;
+    flex-shrink: 0;
+}
+
+.hero-text h1 {
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 45px;
+    font-weight: bold;
+
+    color: darkblue;
+
+    margin: 0 0 20px;
+
+    white-space: nowrap;
+}
+
+.hero-text h1 span {
+    color: red;
+}
+
+.hero-text p {
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 18px;
+
+    color: black;
+
+    margin: 0 0 25px;
+
+    line-height: 1.6;
+}
+
+.hero-image img {
+    width: 500;
+    max-width: 450px;
+    height: 550px;
+    object-fit: contain;
+}
+
+
+
+/* ============================= */
+/* EMERGENCY BUTTON */
+/* ============================= */
+
+.emergency-btn {
+    display: inline-block;
+    background: red;
+    color: white;
+    padding: 7px 13px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.emergency-btn:hover {
+    background: darkred;
+}
+
+
+/* ============================= */
+/* SECTION TITLE */
+/* ============================= */
+
+.section-title {
+    width: 600px;
+    max-width: 90%;
+    margin: 25px auto 15px;
+    text-align: center;
+}
+
+.section-title h2 {
+    font-size: 35px;
+    color: darkblue;
+    margin: 0 0 3px;
+}
+
+.section-title p {
+    font-size: 20px;
+    color: black;
+    margin: 0;
+}
+
+
+/* ============================= */
+/* EMERGENCY HELPLINE */
+/* ============================= */
+
+.emergency-container {
+    width: 1000px;
+    max-width: 90%;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.emergency-card {
+    background: white;
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 12px;
+    min-height: 105px;
+}
+
+.emergency-card img {
+    width: 250px;
+    height: 200px;
+
+    object-fit: cover;
+    border-radius: 8px;
+
+    margin-right: 12px;
+}
+
+.emergency-card > div {
+    flex: 1;
+}
+
+.emergency-card h3 {
+    font-size: 25px;
+    color: red;
+    margin: 0 0 2px;
+}
+
+.emergency-card p {
+    font-size: 18px;
+    color: black;
+    margin: 2px 0 4px;
+}
+
+.number {
+    font-size: 20px;
+    font-weight: bold;
+    color: darkblue;
+    margin: 2px 0 4px;
+}
+
+.call-btn {
+    display: inline-block;
+    background: red;
+    color: white;
+
+    padding: 5px 10px;
+    border-radius: 15px;
+
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.call-btn:hover {
+    background: darkred;
+}
+
+
+/* ============================= */
+/* EMERGENCY STEPS */
+/* ============================= */
+
+.steps-container {
+    width: 1000px;
+    max-width: 90%;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.step {
+    background: white;
+    padding: 15px 8px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.step-icon {
+    font-size: 40px;
+}
+
+.step h3 {
+    font-size: 23px;
+    color: red;
+    margin: 5px 0;
+}
+
+.step p {
+    font-size: 18px;
+    margin: 0;
+    color: black;
+}
+
+
+/* ============================= */
+/* FIRST AID */
+/* ============================= */
+
+.firstaid-container {
+    width: 800px;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.firstaid-card {
+    display: flex;
+    align-items: center;
+
+    background: white;
+
+    margin-bottom: 12px;
+
+    border-radius: 10px;
+    overflow: hidden;
+
+    min-height: 130px;
+}
+
+.firstaid-card img {
+    width: 400px;
+    height: 250px;
+
+    object-fit: contain;
+
+    margin: 5px 15px;
+}
+
+.firstaid-content {
+    padding: 10px;
+    flex: 1;
+}
+
+.firstaid-content h3 {
+    font-size: 28px;
+    color: red;
+    margin: 0 0 5px;
+}
+
+.firstaid-content ul {
+    font-size: 18px;
+    line-height: 1.7;
+
+    padding-left: 15px;
+    margin: 0;
+}
+
+
+/* ============================= */
+/* MOBILE */
+/* ============================= */
+
+@media (max-width: 800px) {
+
+    .hero {
+        flex-direction: column;
+    }
+
+    .hero-text,
+    .hero-image {
+        width: 100%;
+        padding-right: 0;
+    }
+
+    .hero-image img {
+        height: 180px;
+    }
+
+    .emergency-container {
+        grid-template-columns: 1fr;
+    }
+
+    .emergency-card {
+        flex-direction: row;
+    }
+
+    .steps-container {
+        grid-template-columns: 1fr;
+    }
+
+    .firstaid-card,
+    .firstaid-card:nth-child(even) {
+        flex-direction: column;
+    }
+
+    .firstaid-card img {
+        width: 90%;
+        height: 150px;
+        margin: 10px;
+    }
+}
+
+
+
+    </style>
+</head>
+<body bgcolor="lightblue">
+    <header>
+        <div class="top-bar">
+            <a href="/login" class="login-btn">Login</a>
+            <a href="/signup" class="signup-btn">Sign Up</a>
+        </div>
+        <div class="logo-section">
+             <img src="{{ url_for('static', filename='CareClock.png') }}" alt="CareClock Logo" width="100" height="100">
+            <div class="logo-text">
+                <h1>
+                <span class="clock">Clock</span><span class="care">Care</span>
+                </h1>
+                <p><b> Your Health, Our Priority ── .✦</b></p>
+        
+            </div>
+        </div>
+
+
+    </header>
+    
+    <nav>
+        
+ 
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/medicine_reminder">Medicine Reminder</a></li>
+            <li><a href="/emergency_help">Emergency Help</a></li>
+            <li><a href="/medicine_info">Medicine Information</a></li>
+            <li><a href="/lifestyle">Healthy Lifestyle</a></li>
+            
+        </ul>
+    </nav>
+
+
+
+<section class="hero">
+
+        <div class="hero-text">
+
+            <h1>🚨 Emergency <span>Help</span></h1>
+
+            <p>
+                Get quick access to important emergency services
+                and basic first-aid information when you need it most.
+            </p>
+
+            <a href="#emergency" class="emergency-btn">
+                View Emergency Services
+            </a>
+
+        </div>
+
+        <div class="hero-image">
+        <img src="{{ url_for('static', filename='emergency.jpg') }}" alt="Emergency Medical Help">
+
+        </div>
+
+</section>
+
+<div class="section-title" id="emergency">
+
+        <h2>Emergency Helpline Numbers</h2>
+
+        <p>
+            Quick access to important emergency services
+        </p>
+
+</div>
+
+
+<div class="emergency-container">
+
+        <!-- AMBULANCE -->
+
+        <div class="emergency-card">
+
+            <img src="{{ url_for('static', filename='ambulance.webp') }}" alt="Ambulance">
+
+            <div>
+
+                <h3>🚑 Ambulance</h3>
+
+                <p>For emergency medical transportation.</p>
+
+                <div class="number">108</div>
+
+                <a href="tel:108" class="call-btn">
+                    Call Now
+                </a>
+            </div>
+</div>
+<!-- POLICE -->
+
+<div class="emergency-card">
+
+<img src="{{ url_for('static', filename='police.avif') }}" alt="Police">
+
+    <div>
+
+        <h3>👮 Police</h3>
+
+            <p>For immediate police assistance.</p>
+
+            <div class="number">100</div>
+
+                <a href="tel:100" class="call-btn">
+                    Call Now
+                </a>
+
+    </div>
+
+</div>
+
+<!-- FIRE -->
+
+<div class="emergency-card">
+<img src="{{ url_for('static', filename='fire brigade.webp') }}" alt="Fire Brigade">
+    <div>
+
+        <h3>🚒 Fire Brigade</h3>
+
+        <p>For fire and rescue emergencies.</p>
+
+        <div class="number">101</div>
+
+            <a href="tel:101" class="call-btn">
+                    Call Now
+            </a>
+
+    </div>
+
+</div>
+ <!-- WOMEN -->
+
+<div class="emergency-card">
+
+<img src="{{ url_for('static', filename='women helpline.png') }}" alt="Women's Helpline">
+
+    <div>
+
+        <h3>👩 Women's Helpline</h3>
+
+        <p>For women requiring emergency assistance.</p>
+
+        <div class="number">181</div>
+
+            <a href="tel:181" class="call-btn">
+                    Call Now
+            </a>
+
+    </div>
+
+</div>
+</div>
+
+ <!-- EMERGENCY STEPS -->
+
+    <div class="section-title">
+
+        <h2>🚨 What To Do During An Emergency?</h2>
+
+        <p>Follow these simple steps while waiting for help.</p>
+
+    </div>
+<div class="steps-container">
+    <div class="step">
+
+        <div class="step-icon">🧘</div>
+
+            <h3>Stay Calm</h3>
+
+            <p>
+                Stay calm and assess the situation carefully.
+            </p>
+
+    </div>
+
+    <div class="step">
+
+            <div class="step-icon">📞</div>
+
+            <h3>Call For Help</h3>
+
+            <p>
+                Contact the appropriate emergency service.
+            </p>
+
+    </div>
+
+
+    <div class="step">
+
+            <div class="step-icon">📍</div>
+
+            <h3>Share Your Location</h3>
+
+            <p>
+                Tell the emergency service where you are.
+            </p>
+
+    </div>
+
+</div>
+
+
+
+    <!-- FIRST AID -->
+
+<div class="section-title">
+
+        <h2>🩹 Quick First-Aid Guide</h2>
+
+        <p>
+            Basic items and information for common situations.
+        </p>
+
+</div>
+
+<div class="firstaid-container">
+
+
+<!-- CUTS -->
+
+<div class="firstaid-card">
+<img src="{{ url_for('static', filename='cuts & wounds.avif') }}" alt="Cuts and Wounds">
+
+    <div class="firstaid-content">
+
+        <h3>🩹 Cuts & Wounds</h3>
+
+            <ul>
+
+                <li>Band-Aids / Bandages</li>
+
+                <li>Antiseptic solution</li>
+
+                <li>Sterile cotton & gauze</li>
+
+            </ul>
+
+    </div>
+
+</div>
+
+
+<!-- BURNS -->
+
+<div class="firstaid-card">
+<img src="{{ url_for('static', filename='burns.jpg') }}" alt="Minor Burns">
+    <div class="firstaid-content">
+
+        <h3>🔥 Minor Burns</h3>
+
+            <ul>
+
+                <li>Cool the burn with clean running water.</li>
+
+                <li>Use a sterile non-stick dressing.</li>
+
+                <li>Seek medical help for serious burns.</li>
+
+            </ul>
+
+    </div>
+</div>
+
+<!-- SPRAIN -->
+
+<div class="firstaid-card">
+<img src="{{ url_for('static', filename='sprains and pains.webp') }}" alt="Sprains and Pain">
+    <div class="firstaid-content">
+
+        <h3>🦴 Sprains & Pains</h3>
+
+            <ul>
+
+                <li>Crape bandage</li>
+
+                <li>Instant ice pack</li>
+
+                <li>Rest the affected area</li>
+
+            </ul>
+
+    </div>
+</div>
+ <!-- FIRST AID KIT -->
+
+<div class="firstaid-card">
+
+<img src="{{ url_for('static', filename='first aid kit.webp') }}" alt="First Aid Kit">
+    <div class="firstaid-content">
+
+        <h3>🧰 Essential First-Aid Tools</h3>
+
+            <ul>
+
+                <li>Medical scissors</li>
+
+                <li>Digital thermometer</li>
+
+                <li>Safety pins & gloves</li>
+
+            </ul>
+
+    </div>
+</div>
+
+</div>
+
+
+
+
+
+<footer>
+
+    <div class="footer-container">
+
+        <div class="footer-box">
+            <h2>ClockCare</h2>
+            <p>Your Health, Our Priority</p>
+
+        </div>
+
+        <div class="footer-box">
+
+            <h3>Quick Links</h3>
+
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/medicine_reminder">Medicine Reminder</a></li>
+                <li><a href="/emergency_help">Emergency Help</a></li>
+                <li><a href="/medicine_info">Medicine Information</a></li>
+                <li><a href="/lifestyle">Healthy Lifestyle</a></li>
+            </ul>
+
+        </div>
+
+        <div class="footer-box">
+
+            <h3>Contact Us</h3>
+
+            <p>📧 clockcare@gmail.com</p>
+            <p>📞 +91 9167123141 / 92263 78769  </p>
+            <p>📍 Mumbai, Maharashtra</p>
+
+        </div>
+
+    </div>
+
+    <hr>
+
+    <div class="footer-bottom">
+
+        <p>© 2026 ClockCare. All Rights Reserved.</p>
+
+        <p>Developed by Sneha Gupta & Anjali Jha</p>
+
+    </div>
+
+</footer>
+
+
+</body>
+
+</html>

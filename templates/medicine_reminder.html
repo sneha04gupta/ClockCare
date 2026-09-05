@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClockCare</title>
+    <style>
+
+header{
+    padding: 15px 20px;
+    position: relative;
+}
+
+.logo-section{
+
+    display:flex;
+    align-items:center;
+    gap: 20px;
+
+}
+
+.logo-section img{
+
+    width:270px;
+    height:220px;
+
+    border-radius:65px;      /* Rounded corners */
+
+    object-fit:cover;
+    
+    margin-right:0px;
+
+}
+
+.logo-text h1{
+
+    color:#d60000;
+    font-size:60px;
+    font-family:Arial, Helvetica, sans-serif;
+
+}
+
+.logo-text p{
+
+    margin-top:-39px;
+    margin-bottom:0;
+    font-size:20px;
+    color:#d60000;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+.clock{
+    color:red;
+}
+
+.care{
+    color:black;
+}
+
+.top-bar{
+    position:absolute;
+    top:20px;
+    right:50px;
+}
+
+
+.top-bar a{
+    text-decoration:none;
+    color:black;
+    font-weight:bold;
+    margin-left:20px;
+}
+
+.signup-btn{
+    background:#d60000;
+    color:white !important;
+    padding:8px 18px;
+    border-radius:6px;
+}
+.login-btn{
+    background:black;
+    color:white !important;
+    padding:8px 18px;
+    border-radius:6px;
+}
+
+        nav{
+    margin-top: -4px;
+    margin-left: 8px;
+    margin-right: 8px;
+        }
+
+        nav ul{
+    
+    background-color:black;       
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 10px 0;
+    }
+
+    nav ul li a{
+    
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    }
+
+    nav ul li a:hover{
+    color: rgb(42, 198, 245);
+    }
+    p{
+    font-size: 18px;
+    }
+
+footer{
+
+    background:black;
+    color:white;
+    padding:40px 60px 20px;
+    margin-top:60px;
+    margin-left: 8px;
+    margin-right: 8px;
+
+}
+
+.footer-container{
+
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+
+}
+
+.footer-box{
+
+    width:30%;
+
+}
+
+.footer-box h2{
+
+    color:red;
+    margin-bottom:10px;
+
+}
+
+.footer-box h3{
+
+    color:red;
+    margin-bottom:15px;
+
+}
+
+.footer-box p{
+
+    color:white;
+    line-height:28px;
+}
+
+.footer-box ul{
+
+    list-style:none;
+    padding:0;
+
+}
+
+.footer-box ul li{
+
+    margin-bottom:10px;
+
+}
+
+.footer-box ul li a{
+
+    color:white;
+    text-decoration:none;
+
+}
+
+.footer-box ul li a:hover{
+
+    color:red;
+
+}
+
+hr{
+
+    margin:30px 0;
+    border:1px solid red;
+
+}
+
+.footer-bottom{
+
+    text-align:center;
+    font-size:15px;
+
+}
+
+.footer-bottom p{
+
+    margin:5px;
+
+}
+
+        * {
+    box-sizing: border-box;
+}
+
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            
+    }
+
+        /* Outer Flexbox Layout Container */
+        .main-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            width: 100%;
+            max-width: 1150px;
+            margin: 0 auto;  
+            padding: 20px;
+            flex-wrap: wrap;
+    }
+        /* Side Panels (Left & Right Cards) */
+        .side-panel {
+            flex: 1;
+            min-width: 260px;
+            max-width: 310px;
+            height: fit-content; 
+            background: rgb(230, 240, 241);
+            backdrop-filter: blur(10px);
+            padding: 22px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            color: #1a252f;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .side-img {
+            width: 140px;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 6px 10px rgba(0,0,0,0.12));
+            transition: transform 0.3s ease;
+        }
+
+        .side-img:hover {
+            transform: scale(1.05);
+        }
+
+        .side-panel h3, .side-panel h4 {
+            margin-top: 0;
+            color: red;
+            font-size: 1.25rem;
+        }
+
+        .side-panel p {
+            font-size: 0.9rem;
+            color: black;
+            line-height: 1.5;
+        }
+
+        /* Simulated Mobile Phone SMS Bubble */
+        .sms-bubble {
+            background: white;
+            border-radius: 15px;
+            padding: 16px;
+            font-size: 0.9rem;
+            color: black;
+            box-shadow: 0 5px 15px black;
+            border-left: 5px solid red;
+            text-align: left;
+            margin-top: 15px;
+            width: 100%;
+            line-height: 1.5;
+            transition: all 0.3s ease;
+        }
+
+        /* Center Glassmorphism Form Card */
+        .reminder-card {
+            flex: 1.3;
+            min-width: 320px;
+            max-width: 450px;
+            background: rgba(255, 255, 255, 0.48);
+            backdrop-filter: blur(12px);
+            padding: 28px;
+            border-radius: 22px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            position: relative;
+        }
+
+        .reminder-card h2 {
+            text-align: center;
+            color: red;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.55rem;
+        }
+
+        .form-group {
+            margin-bottom: 13px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: black;
+            font-size: 0.88rem;
+        }
+
+        .required-star {
+            color: red;
+        }
+
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-wrapper span.icon {
+            position: absolute;
+            left: 12px;
+            font-size: 1.05rem;
+        }
+
+        .form-group input, 
+        .form-group select {
+            width: 100%;
+            padding: 10px 10px 10px 38px;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            background: rgba(255, 255, 255, 0.75);
+            border-radius: 10px;
+            font-size: 0.9rem;
+            outline: none;
+            transition: all 0.25s;
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus {
+            border-color: red;
+            background: white;
+            box-shadow: 0 0 6px rgba(217, 83, 79, 0.25);
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: red;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            box-shadow: 0 4px 12px rgba(217, 83, 79, 0.3);
+            transition: all 0.2s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: darkred;
+            transform: translateY(-2px);
+        }
+
+        .nav-link {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: black;
+            text-decoration: underline;
+            font-size: 0.88rem;
+            font-weight: bold;
+        }
+
+        /* Success Message Alert Box (JS Triggered) */
+        .alert-box {
+            display: none;
+            background: rgb(250, 166, 166);
+            color: red;
+            border: 1px solid black;
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            font-size: 0.88rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+    </style>
+</head>
+<body bgcolor="lightblue">
+    <header>
+        <div class="top-bar">
+            <a href="/login" class="login-btn">Login</a>
+            <a href="/signup" class="signup-btn">Sign Up</a>
+        </div>
+        <div class="logo-section">
+             <img src="{{ url_for('static', filename='CareClock.png') }}" alt="CareClock Logo" width="100" height="100">
+            <div class="logo-text">
+                <h1>
+                <span class="clock">Clock</span><span class="care">Care</span>
+                </h1>
+                <p><b> Your Health, Our Priority ── .✦</b></p>
+        
+            </div>
+        </div>
+
+
+    </header>
+
+    <nav>
+        
+ 
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/medicine_reminder">Medicine Reminder</a></li>
+            <li><a href="/emergency_help">Emergency Help</a></li>
+            <li><a href="/medicine_info">Medicine Information</a></li>
+            <li><a href="/lifestyle">Healthy Lifestyle</a></li>
+            
+        </ul>
+    </nav>
+
+
+
+    <div class="main-wrapper">
+
+        <div class="side-panel left-panel">
+            <img src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png" alt="Doctor Illustration" class="side-img">
+            <h3>Never Miss a Dose</h3>
+            <p>Automated SMS technology sends daily pill reminders directly to your mobile phone right on schedule.</p>
+        </div>
+
+        <div class="reminder-card">
+            <h2>💊 Set Medicine Reminder</h2>
+
+            <div id="successAlert" class="alert-box">
+                ✅ Reminder set successfully! SMS alerts configured.
+            </div>
+
+            <form id="medicineForm" method="POST" action="/set_reminder">
+                <div class="form-group">
+                    <label>Patient Name <span class="required-star">*</span></label>
+                    <div class="input-wrapper">
+                        <span class="icon">👤</span>
+                        <input type="text" id="patientName" name="patientName" placeholder="Enter full name" required>
+                    </div>
+                </div>
+
+            
+                <div class="form-group">
+                    <label>Reason / Health Issue</label>
+                    <div class="input-wrapper">
+                        <span class="icon">🩺</span>
+                        <input type="text" id="healthIssue" name="healthIssue" placeholder="e.g. Fever / Headached / Cough">
+                     </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Medicine Name</label>
+                    <div class="input-wrapper">
+                        <span class="icon">💊</span>
+                        <input type="text" id="medicineName" name="medicineName" placeholder="e.g. Paracetamol/Syrup">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Dosage</label>
+                    <div class="input-wrapper">
+                        <span class="icon">🥄</span>
+                        <input type="text" id="dosage" name="dosage"placeholder="e.g. 1 Tablet / 10ml">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Time to Take</label>
+                    <div class="input-wrapper">
+                        <span class="icon">⏰</span>
+                        <input type="time" id="reminderTime" name="reminderTime" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Duration </label>
+                    <div class="input-wrapper">
+                        <span class="icon">📅</span>
+                        <select id="duration" name="duration">
+                            <option value="regular">Regular</option>
+                            <option value="3 Days">3 Days</option>
+                            <option value="5 Days">5 Days</option>
+                            <option value="7 Days" selected>7 Days (1 Week)</option>
+                            <option value="15 Days">15 Days</option>
+                            <option value="1 Month">1 Month</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Instruction</label>
+                    <div class="input-wrapper">
+                        <span class="icon">🍽️</span>
+                        <select id="instruction" name="instruction">
+                            <option value="After Meal">After Meal </option>
+                            <option value="Before Meal">Before Meal</option>
+                            <option value="With Water">With Water</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Set Reminder</button>
+            </form>
+        </div>
+
+        <div class="side-panel right-panel">
+            <img src="https://cdn-icons-png.flaticon.com/512/3616/3616215.png" alt="SMS Icon" class="side-img" style="width: 80px;">
+            <h4>📱 Live SMS Preview</h4>
+            <p>This is how the message will appear on your phone:</p>
+            <div class="sms-bubble" id="smsPreview">
+                💬 <b>Healthcare Alert:</b><br>
+                "Hello <span id="previewName">Patient</span>! It's time to take your <b id="previewMedicine">Paracetamol</b> (<span id="previewDosage">1 Tablet</span>) - <span id="previewInstruction">After Meal</span>."
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Form aur Inputs Ko Target Karna
+        const successAlert = document.getElementById('successAlert');
+        const patientNameInput = document.getElementById('patientName');
+        const medicineNameInput = document.getElementById('medicineName');
+        const dosageInput = document.getElementById('dosage');
+        const instructionInput = document.getElementById('instruction');
+
+        // Live Preview Fields
+        const previewName = document.getElementById('previewName');
+        const previewMedicine = document.getElementById('previewMedicine');
+        const previewDosage = document.getElementById('previewDosage');
+        const previewInstruction = document.getElementById('previewInstruction');
+        
+
+        // Typing ke saath Live SMS Text Update Karna
+        patientNameInput.addEventListener('input', () => {
+            previewName.textContent = patientNameInput.value || 'Patient';
+        });
+
+        medicineNameInput.addEventListener('input', () => {
+            previewMedicine.textContent = medicineNameInput.value || 'Paracetamol';
+        });
+
+        dosageInput.addEventListener('input', () => {
+            previewDosage.textContent = dosageInput.value || '1 Tablet';
+        });
+
+        instructionInput.addEventListener('change', () => {
+            previewInstruction.textContent = instructionInput.value;
+        });
+
+        
+    </script>
+
+<footer>
+
+    <div class="footer-container">
+
+        <div class="footer-box">
+            <h2>ClockCare</h2>
+            <p>Your Health, Our Priority</p>
+
+        </div>
+
+        <div class="footer-box">
+
+            <h3>Quick Links</h3>
+
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/medicine_reminder">Medicine Reminder</a></li>
+                <li><a href="/emergency_help">Emergency Help</a></li>
+                <li><a href="/medicine_info">Medicine Information</a></li>
+                <li><a href="/lifestyle">Healthy Lifestyle</a></li>
+            </ul>
+
+        </div>
+
+        <div class="footer-box">
+
+            <h3>Contact Us</h3>
+
+            <p>📧 clockcare@gmail.com</p>
+            <p>📞 +91 9167123141 / 92263 78769  </p>
+            <p>📍 Mumbai, Maharashtra</p>
+
+        </div>
+
+    </div>
+
+    <hr>
+
+    <div class="footer-bottom">
+
+        <p>© 2026 ClockCare. All Rights Reserved.</p>
+
+        <p>Developed by Sneha Gupta & Anjali Jha</p>
+
+    </div>
+
+</footer>
+
+
+
+
+
+
+</body>
+</html>

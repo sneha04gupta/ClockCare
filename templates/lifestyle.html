@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title> ClockCare</title>
+    <style>
+        header{
+            padding:8px 15px;
+        }
+
+.logo-section{
+
+    display:flex;
+    align-items:center;
+    
+
+}
+
+.logo-section img{
+
+    width:270px;
+    height:220px;
+
+    border-radius:65px;      /* Rounded corners */
+
+    object-fit:cover;
+    
+    margin-right:20px;
+
+}
+
+.logo-text h1{
+
+    color:#d60000;
+    font-size:60px;
+    font-family:Arial, Helvetica, sans-serif;
+
+}
+
+.logo-text p{
+
+    margin-top:-39px;
+    margin-bottom:0;
+    font-size:20px;
+    color:#d60000;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+.clock{
+    color:red;
+}
+
+.care{
+    color:black;
+}
+
+.top-bar{
+    position:absolute;
+    top:20px;
+    right:50px;
+}
+
+.top-bar a{
+    text-decoration:none;
+    color:black;
+    font-weight:bold;
+    margin-left:20px;
+}
+
+.signup-btn{
+    background:#d60000;
+    color:white !important;
+    padding:8px 18px;
+    border-radius:6px;
+}
+.login-btn{
+    background:black;
+    color:white !important;
+    padding:8px 18px;
+    border-radius:6px;
+}
+
+        nav ul{
+    background-color:black;       
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 10px 0;
+    }
+
+    nav ul li a{
+    
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    }
+
+    nav ul li a:hover{
+    color: rgb(42, 198, 245);
+    }
+    p{
+    font-size: 18px;
+    }
+
+footer{
+
+    background:#111;
+    color:white;
+    padding:40px 60px 20px;
+    margin-top:60px;
+
+}
+
+.footer-container{
+
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+
+}
+
+.footer-box{
+
+    width:30%;
+
+}
+
+.footer-box h2{
+
+    color:red;
+    margin-bottom:10px;
+
+}
+
+.footer-box h3{
+
+    color:red;
+    margin-bottom:15px;
+
+}
+
+.footer-box p{
+
+    color:white;
+    line-height:28px;
+}
+
+.footer-box ul{
+
+    list-style:none;
+    padding:0;
+
+}
+
+.footer-box ul li{
+
+    margin-bottom:10px;
+
+}
+
+.footer-box ul li a{
+
+    color:white;
+    text-decoration:none;
+
+}
+
+.footer-box ul li a:hover{
+
+    color:red;
+
+}
+
+hr{
+
+    margin:30px 0;
+    border:1px solid red;
+
+}
+
+.footer-bottom{
+
+    text-align:center;
+    font-size:15px;
+
+}
+
+.footer-bottom p{
+
+    margin:5px;
+
+}
+.hero {
+    text-align: center;
+    padding: 15px;
+}
+.hero-text  h1{
+    font-size: 35px;
+    color: black;
+
+}
+.hero-text  h2{
+    font-size: 25px;
+    color: rgb(16, 2, 80);
+}
+.hero-text  p{
+    font-size: 20px;
+    color: black;
+}
+
+/* Healthy Lifestyle */
+
+.healthy-lifestyle {
+    padding: 50px 8%;
+    background-color: white;
+    min-height: 100vh;
+}
+
+.lifestyle-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.lifestyle-header h1 {
+    font-size: 75px;
+    color: red;
+    margin-bottom: 10px;
+}
+
+.lifestyle-header p {
+    font-size: 18px;
+    color: red;
+}
+
+/* Cards */
+
+.lifestyle-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.lifestyle-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 18px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+    border-left: 5px solid red;
+    transition: 0.3s;
+}
+
+.lifestyle-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.card-icon {
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+.lifestyle-card h2 {
+    color: red;
+    margin-bottom: 10px;
+    font-size:25px;
+}
+
+.lifestyle-card p {
+    color: black;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.lifestyle-card ul {
+    display: inline-block;
+    text-align: left;
+    padding-left: 20px;
+    margin: 0 auto;
+    color: black;
+    line-height: 1.8;
+    font-size: 18px;
+}
+.lifestyle-card {
+    text-align: center;
+}
+/* Daily Tip */
+
+.daily-tip {
+    max-width: 900px;
+    margin: 40px auto 0;
+    padding: 25px;
+    background-color: white;
+    border-radius: 18px;
+    text-align: center;
+    border-left: 5px solid red;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+}
+
+.daily-tip h2 {
+    color: red;
+    font-size: 25px;
+}
+
+.daily-tip p {
+    color: black;
+    font-size: 20px;
+}
+
+.disclaimer {
+    width: 73%;
+    margin: 25px auto 0;
+    padding: 12px 20px;
+    background-color: white;
+    border-radius: 0 0 12px 12px;
+    border-left: 5px solid red;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+}
+
+.disclaimer h2 {
+    color:  red;
+    font-size: 25px;
+    margin: 0 0 10px;
+}
+
+.disclaimer p {
+    margin: 0;
+    color: black;
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: center;
+    font-size: 18px
+}
+
+.disclaimer b {
+    font-weight: bold;
+}
+
+.wellness-section {
+    padding: 30px 8%;
+    background-color: #add8e6;
+}
+
+.wellness-container {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px 25px;
+    background-color: #f4fbff;
+    border-radius: 16px;
+    border-left: 4px solid red;
+    border-right: 4px solid red;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.doctor-image {
+    width: 120px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.doctor-image img {
+    width: 180px;
+    height: auto;
+    object-fit: contain;
+}
+
+.wellness-content {
+    flex: 1;
+    text-align: center;
+}
+
+.wellness-container h2 {
+    color: red;
+    font-size: 25px;
+    margin: 0 0 8px;
+}
+
+.wellness-intro {
+    color: black;
+    font-size: 18px;
+    margin: 0 0 12px;
+}
+
+.wellness-timer {
+    color: red;
+    font-size: 32px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+#wellnessMessage {
+    color: black;
+    font-size: 18px;
+    margin: 10px 0 15px;
+}
+
+.wellness-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.wellness-buttons button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 7px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.wellness-buttons button:hover {
+    background-color: darkred;
+}
+
+
+.personalized-lifestyle-card {
+    width: 850px;
+    max-width: 900px;
+    margin: 25px auto 35px;
+    padding: 25px;
+    background-color: white;
+    border-radius: 20px;
+    border-left: 6px solid red;
+    box-shadow: 0 5px 18px black;
+    text-align: left;
+}
+
+.personalized-lifestyle-card h2 {
+    font-size: 28px;
+    text-align: center;
+    color: red;
+    margin-bottom: 15px;
+}
+
+.personalized-lifestyle-card p {
+    margin: 8px 0;
+    font-size: 20px;
+}
+
+.ai-suggestion {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 12px;
+    white-space: pre-line;
+    line-height: 1.6;
+    font-size: 18px;
+}
+
+
+    </style>
+</head>
+<body bgcolor="lightblue">
+    <header>
+        <div class="top-bar">
+            <a href="/login" class="login-btn">Login</a>
+            <a href="/signup" class="signup-btn">Sign Up</a>
+        </div>
+        <div class="logo-section">
+            <img src="{{ url_for('static', filename='CareClock.png') }}" alt="CareClock Logo" width="100" height="100">
+            <div class="logo-text">
+                <h1>
+                <span class="clock">Clock</span><span class="care">Care</span>
+                </h1>
+                <p><b> Your Health, Our Priority ── .✦</b></p>
+        
+            </div>
+        </div>
+
+
+    </header>
+    
+    <nav>
+        
+ 
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/medicine_reminder">Medicine Reminder</a></li>
+            <li><a href="/emergency_help">Emergency Help</a></li>
+            <li><a href="/medicine_info">Medicine Information</a></li>
+            <li><a href="/lifestyle">Healthy Lifestyle</a></li>
+            
+        </ul>
+    </nav>
+
+<section class="hero">
+
+    <div class="hero-text">
+        <img src="{{ url_for('static', filename='yoga.png') }}" alt="CareClock Logo" width="350" height="200" align="center">
+        <h1> Healthy Lifestyle</h1>
+
+        <h2>"Small changes Today, a healthier Tomorrow"</h2>
+
+        <p>Adopt simple daily habits that improve your physical health, mental peace and overall wellbeing.</p>
+
+<!-- PERSONALIZED GEMINI LIFESTYLE CARD -->
+<!-- PERSONALIZED GEMINI LIFESTYLE CARD -->
+<div class="personalized-lifestyle-card">
+
+    <h2>🤖 Healthcare Tips with ClockCare AI</h2>
+
+    <p class="ai-subtitle" align="center">
+        Personalized according to your Medicine and Health Issue.
+    </p>
+
+    {% if latest_reminder %}
+    <div class="ai-suggestion">
+        {{ latest_reminder.lifestyle_suggestion }}
+    </div>
+    {% endif %}
+
+</div>
+
+
+       <div class="lifestyle-cards">
+
+        <!-- Healthy Eating -->
+        <div class="lifestyle-card">
+            <div class="card-icon">🥗</div>
+            <h2>Healthy Eating</h2>
+            <p>
+                Eat a balanced diet with fruits, vegetables,
+                whole grains and nutritious foods.
+            </p>
+            <ul>
+                <li>Eat fresh fruits and vegetables</li>
+                <li>Choose nutritious meals</li>
+                <li>Limit junk and processed food</li>
+                <li>Drink enough water</li>
+            </ul>
+        </div>
+
+        <!-- Physical Activity -->
+        <div class="lifestyle-card">
+            <div class="card-icon">🏃</div>
+            <h2>Physical Activity</h2>
+            <p>
+                Regular physical activity helps keep your
+                body strong and active.
+            </p>
+            <ul>
+                <li>Exercise regularly</li>
+                <li>Take short walks</li>
+                <li>Stretch your body</li>
+                <li>Avoid sitting for long periods</li>
+            </ul>
+        </div>
+
+        <!-- Good Sleep -->
+        <div class="lifestyle-card">
+            <div class="card-icon">😴</div>
+            <h2>Good Sleep</h2>
+            <p>
+                Proper sleep helps your body recover and
+                keeps your mind fresh.
+            </p>
+            <ul>
+                <li>Maintain a regular sleep schedule</li>
+                <li>Avoid screens before sleeping</li>
+                <li>Keep your room comfortable</li>
+                <li>Get enough sleep every night</li>
+            </ul>
+        </div>
+
+        <!-- Mental Wellness -->
+        <div class="lifestyle-card">
+            <div class="card-icon">🧘</div>
+            <h2>Mental Wellness</h2>
+            <p>
+                Taking care of your mental health is just as
+                important as taking care of your body.
+            </p>
+            <ul>
+                <li>Take breaks when needed</li>
+                <li>Practice relaxation techniques</li>
+                <li>Spend time with loved ones</li>
+                <li>Talk to someone when you need help</li>
+            </ul>
+        </div>
+
+    </div>
+<div class="right-sidebar">
+    <div class="daily-tip">
+        <h2>💡 Daily Health Tip</h2>
+        <p id="healthTip">
+            Drink enough water, stay active, eat nutritious food
+            and give your body enough time to rest.
+        </p>
+    </div>
+    <div class="disclaimer">
+        <h2>⚠️ Disclaimer</h2>
+
+        <p align="center">
+        The information provided on ClockCare is for general
+        educational purposes only. It is not a substitute for
+        professional medical advice, diagnosis, or treatment.
+        Always consult a qualified healthcare professional for
+        medical concerns.
+        </p>
+    </div>
+</div>
+<script>
+    const healthTips = [
+        "Drink enough water throughout the day to keep your body hydrated and healthy.",
+        "Eat a variety of fruits and vegetables to give your body essential vitamins and minerals.",
+        "Take a short walk every day to keep your body active and healthy.",
+        "Getting enough sleep helps your body recover and keeps your mind fresh.",
+        "Take regular breaks from screens to reduce eye strain and refresh your mind.",
+        "Choose nutritious foods and try to limit highly processed and sugary foods.",
+        "Stretch your body regularly, especially if you sit for long periods.",
+        "Start your day with a healthy breakfast to support your energy levels.",
+        "Practice deep breathing or relaxation when you feel stressed.",
+        "Maintain a regular sleep schedule for better rest and overall wellbeing."
+    ];
+
+    const randomTip = Math.floor(Math.random() * healthTips.length);
+
+    document.getElementById("healthTip").textContent = healthTips[randomTip];
+
+
+
+let timeLeft = 120;
+let timerInterval = null;
+
+function startTimer() {
+    if (timerInterval !== null) {
+        return;
+    }
+
+    timerInterval = setInterval(function () {
+
+        if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            timerInterval = null;
+
+            document.getElementById("timer").textContent = "00:00";
+
+            document.getElementById("wellnessMessage").textContent =
+                "Great job!!! You took a moment for yourself. Keep going and take care of your mind and body!";
+
+            return;
+        }
+
+        timeLeft--;
+
+        let minutes = Math.floor(timeLeft / 60);
+        let seconds = timeLeft % 60;
+
+        document.getElementById("timer").textContent =
+            String(minutes).padStart(2, "0") + ":" +
+            String(seconds).padStart(2, "0");
+
+    }, 1000);
+}
+
+function resetTimer() {
+    clearInterval(timerInterval);
+    timerInterval = null;
+
+    timeLeft = 120;
+
+    document.getElementById("timer").textContent = "02:00";
+
+    document.getElementById("wellnessMessage").textContent =
+        "Sit comfortably and inhale slowly, then exhale gently.";
+}
+
+
+</script>
+
+</section>
+
+<section class="wellness-section">
+
+    <div class="wellness-container">
+
+        <div class="doctor-image">
+            <img src="{{ url_for('static', filename='girl1.png') }}">
+        </div>
+
+        <div class="wellness-content">
+
+            <h2>Quick Wellness Break</h2>
+
+            <p class="wellness-intro">
+                Take a moment to relax, breathe and refresh your mind.
+            </p>
+
+            <div class="wellness-timer" id="timer">
+                02:00
+            </div>
+
+            <p id="wellnessMessage">
+                Sit comfortably and inhale slowly, then exhale gently.
+            </p>
+
+            <div class="wellness-buttons">
+                <button onclick="startTimer()">Start Break</button>
+                <button onclick="resetTimer()">Reset</button>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<footer>
+
+    <div class="footer-container">
+
+        <div class="footer-box">
+            <h2>ClockCare</h2>
+            <p>Your Health, Our Priority</p>
+
+        </div>
+
+        <div class="footer-box">
+
+            <h3>Quick Links</h3>
+
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/medicine_reminder">Medicine Reminder</a></li>
+                <li><a href="/emergency_help">Emergency Help</a></li>
+                <li><a href="/medicine_info">Medicine Information</a></li>
+                <li><a href="/lifestyle">Healthy Lifestyle</a></li>
+            </ul>
+
+        </div>
+
+        <div class="footer-box">
+
+            <h3>Contact Us</h3>
+
+            <p>📧 clockcare@gmail.com</p>
+            <p>📞 +91 9167123141 / 92263 78769  </p>
+            <p>📍 Mumbai, Maharashtra</p>
+
+        </div>
+
+    </div>
+
+    <hr>
+
+    <div class="footer-bottom">
+
+        <p>© 2026 ClockCare. All Rights Reserved.</p>
+
+        <p>Developed by Sneha Gupta & Anjali Jha</p>
+
+    </div>
+
+</footer>
+
+
+</body>
+
+</html>

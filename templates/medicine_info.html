@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title> ClockCare</title>
+    <style>
+        header{
+            padding:8px 15px;
+        }
+
+.logo-section{
+
+    display:flex;
+    align-items:center;
+    
+
+}
+
+.logo-section img{
+
+    width:270px;
+    height:220px;
+
+    border-radius:65px;      /* Rounded corners */
+
+    object-fit:cover;
+    
+    margin-right:20px;
+
+}
+
+.logo-text h1{
+
+    color:#d60000;
+    font-size:60px;
+    font-family:Arial, Helvetica, sans-serif;
+
+}
+
+.logo-text p{
+
+    margin-top:-39px;
+    margin-bottom:0;
+    font-size:20px;
+    color:#d60000;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+.clock{
+    color:red;
+}
+
+.care{
+    color:black;
+}
+
+.top-bar{
+    position:absolute;
+    top:20px;
+    right:50px;
+}
+
+.top-bar a{
+    text-decoration:none;
+    color:black;
+    font-weight:bold;
+    margin-left:20px;
+}
+
+.signup-btn{
+    background:#d60000;
+    color:white !important;
+    padding:8px 18px;
+    border-radius:6px;
+}
+.login-btn{
+    background:black;
+    color:white !important;
+    padding:8px 18px;
+    border-radius:6px;
+}
+
+        nav ul{
+    background-color:black;       
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 10px 0;
+    }
+
+    nav ul li a{
+    
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    }
+
+    nav ul li a:hover{
+    color: skyblue;
+    }
+    p{
+    font-size: 18px;
+    }
+
+footer{
+
+    background: black;
+    color:white;
+    padding:40px 60px 20px;
+    margin-top:60px;
+
+}
+
+.footer-container{
+
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+
+}
+
+.footer-box{
+
+    width:30%;
+
+}
+
+.footer-box h2{
+
+    color:red;
+    margin-bottom:10px;
+
+}
+
+.footer-box h3{
+
+    color:red;
+    margin-bottom:15px;
+
+}
+
+.footer-box p{
+
+    color:white;
+    line-height:28px;
+}
+
+.footer-box ul{
+
+    list-style:none;
+    padding:0;
+
+}
+
+.footer-box ul li{
+
+    margin-bottom:10px;
+
+}
+
+.footer-box ul li a{
+
+    color:white;
+    text-decoration:none;
+
+}
+
+.footer-box ul li a:hover{
+
+    color:red;
+
+}
+
+hr{
+
+    margin:30px 0;
+    border:1px solid red;
+
+}
+
+.footer-bottom{
+
+    text-align:center;
+    font-size:15px;
+
+}
+
+.footer-bottom p{
+
+    margin:5px;
+
+}
+
+/* Medicine Chatbot */
+
+.chatbot-section {
+    width: 70%;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.chatbot-section h1 {
+    color: black;
+    font-size: 32px;
+}
+
+.chatbot-intro {
+    font-size: 20px;
+    color: black;
+    margin-bottom: 25px;
+}
+
+.chatbot-box {
+    background: white;
+    width: 70%;
+    margin: auto;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 12px black;
+}
+
+.chatbot-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.chatbot-input input {
+    flex: 1;
+    padding: 13px;
+    font-size: 16px;
+    border: 2px solid black;
+    border-radius: 8px;
+    outline: none;
+}
+
+.chatbot-input button {
+    background: red;
+    color: white;
+    border: none;
+    padding: 13px 22px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.chatbot-input button:hover {
+    background: darkred;
+}
+
+.chatbot-response {
+    background: white;
+    min-height: 150px;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.chatbot-response h3 {
+    color: red;
+    margin-top: 0;
+}
+
+#responseText {
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+
+
+
+
+    </style>
+</head>
+<body bgcolor="lightblue">
+    <header>
+        <div class="top-bar">
+            <a href="/login" class="login-btn">Login</a>
+            <a href="/signup" class="signup-btn">Sign Up</a>
+        </div>
+        <div class="logo-section">
+             <img src="{{ url_for('static', filename='CareClock.png') }}" alt="CareClock Logo" width="100" height="100">
+            <div class="logo-text">
+                <h1>
+                <span class="clock">Clock</span><span class="care">Care</span>
+                </h1>
+                <p><b> Your Health, Our Priority ── .✦</b></p>
+        
+            </div>
+        </div>
+
+
+    </header>
+    
+    <nav>
+        
+ 
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/medicine_reminder">Medicine Reminder</a></li>
+            <li><a href="/emergency_help">Emergency Help</a></li>
+            <li><a href="/medicine_info">Medicine Information</a></li>
+            <li><a href="/lifestyle">Healthy Lifestyle</a></li>
+            
+        </ul>
+    </nav>
+
+<section class="chatbot-section">
+
+    <h1>💊 Medicine Information</h1>
+
+    <p class="chatbot-intro">
+        Ask ClockCare about any medicine and get basic health information.
+    </p>
+
+    <div class="chatbot-box">
+
+        <div class="chatbot-input">
+
+            <input
+                type="text"
+                id="medicineQuestion"
+                placeholder="Type a medicine or ask a question..."
+            >
+
+            <button onclick="askMedicine()">
+                Ask
+            </button>
+
+        </div>
+
+        <div class="chatbot-response">
+
+            <h3>🤖 ClockCare Assistant</h3>
+
+            <p id="responseText">
+                Hello! I can provide general information about medicines,
+                including their uses, common side effects and precautions.
+                <br><br>
+                Try asking: <b>"Tell me about Paracetamol"</b>
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<script>
+
+async function askMedicine() {
+
+    let question = document.getElementById("medicineQuestion").value;
+
+    if (question.trim() === "") {
+
+        document.getElementById("responseText").innerHTML =
+            "⚠️ Please enter a medicine name or question.";
+
+        return;
+    }
+
+    document.getElementById("responseText").innerHTML =
+        "⏳ Please wait...ClockCare Assistant is preparing the information.";
+
+    try {
+
+        const response = await fetch("/ask_medicine", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                question: question
+            })
+
+        });
+
+        const data = await response.json();
+
+        console.log("DATA FROM FLASK:", data);
+
+        document.getElementById("responseText").innerText =
+            data.answer;
+
+    } catch (error) {
+
+        document.getElementById("responseText").innerHTML =
+            "❌ Something went wrong. Please try again.";
+
+    }
+}
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+<footer>
+
+    <div class="footer-container">
+
+        <div class="footer-box">
+            <h2>ClockCare</h2>
+            <p>Your Health, Our Priority</p>
+
+        </div>
+
+        <div class="footer-box">
+
+            <h3>Quick Links</h3>
+
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/medicine_reminder">Medicine Reminder</a></li>
+                <li><a href="/emergency_help">Emergency Help</a></li>
+                <li><a href="/medicine_info">Medicine Information</a></li>
+                <li><a href="/lifestyle">Healthy Lifestyle</a></li>
+            </ul>
+
+        </div>
+
+        <div class="footer-box">
+
+            <h3>Contact Us</h3>
+
+            <p>📧 clockcare@gmail.com</p>
+            <p>📞 +91 9167123141 / 92263 78769 </p>
+            <p>📍 Mumbai, Maharashtra</p>
+
+        </div>
+
+    </div>
+
+    <hr>
+
+    <div class="footer-bottom">
+
+        <p>© 2026 ClockCare. All Rights Reserved.</p>
+
+        <p>Developed by Sneha Gupta & Anjali Jha</p>
+
+    </div>
+
+</footer>
+
+
+
+
+
+
+
+</body>
+
+</html>
