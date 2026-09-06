@@ -4,7 +4,7 @@ from medicine_backend import medicine_bp, create_medicine_table
 from flask import Flask, render_template, request, redirect, flash, session
 
 from google import genai
-from reminder_scheduler import start_scheduler
+
 
 app = Flask(__name__)
 app.register_blueprint(medicine_bp)
