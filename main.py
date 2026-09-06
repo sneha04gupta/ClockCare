@@ -1,5 +1,9 @@
 import os
-import sqlite3
+import psycopg2
+from dotenv import load_dotenv
+
+load_dotenv(".env.local")
+
 from medicine_backend import medicine_bp, create_medicine_table
 from flask import Flask, render_template, request, redirect, flash, session
 
@@ -17,17 +21,21 @@ client = genai.Client(
     api_key=os.environ.get("GEMINI_API_KEY")
 )
 
-
+def get_db_connection():
+    return psycopg2.connect(
+        os.environ.get("DATABASE_URL")
+    )
 
 
 # Create database
+# Create database
 def create_database():
-    conn = sqlite3.connect("clockcare.db")
+    conn = get_db_connection()
     cursor = conn.cursor()
 
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS users (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            id SERIAL PRIMARY KEY,
             name TEXT NOT NULL,
             email TEXT NOT NULL UNIQUE,
             phone TEXT NOT NULL,
@@ -36,6 +44,7 @@ def create_database():
     """)
 
     conn.commit()
+    cursor.close()
     conn.close()
 
 
@@ -152,9 +161,9 @@ def lifestyle():
 
     if "user_phone" in session:
 
-        conn = sqlite3.connect("clockcare.db")
-        conn.row_factory = sqlite3.Row
-
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        
         latest_reminder = conn.execute("""
             SELECT *
             FROM medicine_reminders
@@ -195,12 +204,12 @@ def signup():
             return redirect("/signup")
 
         try:
-            conn = sqlite3.connect("clockcare.db")
+            conn = get_db_connection()
             cursor = conn.cursor()
 
             cursor.execute("""
                 INSERT INTO users (name, email, phone, password)
-                VALUES (?, ?, ?, ?)
+                VALUES (%s, %s, %s, %s)
             """, (name, email, phone, password))
 
             conn.commit()
@@ -209,7 +218,17 @@ def signup():
             flash("Account created successfully!")
             return redirect("/signup")
 
-        except sqlite3.IntegrityError:
+        except psycopg2.IntegrityError:
+            conn.rollback()
+
+            try:
+                conn.close()
+            except:
+                pass
+
+            flash("This email is already registered!")
+            return redirect("/signup")
+        
             try:
                 conn.close()
             except:
@@ -245,12 +264,12 @@ def login():
         email = request.form["email"]
         password = request.form["password"]
 
-        conn = sqlite3.connect("clockcare.db")
+        conn = get_db_connection()
         cursor = conn.cursor()
 
         cursor.execute(
-            "SELECT * FROM users WHERE email = ? AND password = ?",
-            (email, password)
+            "SELECT * FROM users WHERE email = %s AND password = %s",
+        (email, password)
         )
 
         user = cursor.fetchone()
