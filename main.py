@@ -1,14 +1,23 @@
+import os
+import sqlite3
 from medicine_backend import medicine_bp, create_medicine_table
 from flask import Flask, render_template, request, redirect, flash, session
-import sqlite3
+
 from google import genai
 from reminder_scheduler import start_scheduler
 
 app = Flask(__name__)
 app.register_blueprint(medicine_bp)
-app.secret_key = "clockcare_secret_key"
+app.secret_key = os.environ.get(
+    "FLASK_SECRET_KEY",
+    "clockcare_secret_key"
+)
 
-client = genai.Client()
+client = genai.Client(
+    api_key=os.environ.get("GEMINI_API_KEY")
+)
+
+
 
 
 # Create database
@@ -177,11 +186,10 @@ def signup():
             phone = "+91" + phone[1:]
         elif not phone.startswith("+"):
             phone = "+91" + phone
-            
+
         password = request.form["password"]
         confirm_password = request.form["confirm_password"]
 
-        # Check passwords
         if password != confirm_password:
             flash("Passwords do not match!")
             return redirect("/signup")
@@ -202,10 +210,30 @@ def signup():
             return redirect("/signup")
 
         except sqlite3.IntegrityError:
+            try:
+                conn.close()
+            except:
+                pass
+
             flash("This email is already registered!")
             return redirect("/signup")
 
+        except Exception as e:
+            print("SIGNUP ERROR:", repr(e))
+
+            import traceback
+            traceback.print_exc()
+
+            try:
+                conn.close()
+            except:
+                pass
+
+            flash("Signup failed. Please try again.")
+            return redirect("/signup")
+
     return render_template("signup.html")
+
 
 
 # Login page
@@ -249,5 +277,9 @@ create_medicine_table()
 
 
 if __name__ == "__main__":
-    start_scheduler()
-    app.run(host="0.0.0.0", port=5000, debug=True, use_reloader=False)
+    app.run(
+        host="0.0.0.0",
+        port=5000,
+        debug=True,
+        use_reloader=False
+    )
